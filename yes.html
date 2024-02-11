@@ -2,15 +2,77 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="./yes_style.css">
+    <style>
+        .quiz {
+            background-color: #f8bbd0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .quiz_question {
+            color: #e91e63;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .quiz p {
+            margin-bottom: 10px;
+        }
+
+        .quiz label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .quiz button {
+            background-color: #ffcdd2;
+            color: #e91e63;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .quiz button:hover {
+            background-color: #e91e63;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .progress-bar {
+            background-color: #81c784; /* Light green for progress bar */
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .progress {
+            background-color: #4caf50; /* Dark green for progress */
+            height: 100%;
+            border-radius: 5px;
+            width: 0; /* Initial width is 0 */
+            transition: width 0.5s ease;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div>
             <h1 class="header_text">Hurrayyyy!!</h1>
         </div>
-       
-        <div class="quiz">
+
+        <div class="quiz" id="quizContainer">
             <h2 class="quiz_question">WAIT! Let's make sure you're Valentine material...</h2>
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
             <form id="quizForm">
                 <!-- Question 1 -->
                 <p>1. What's Mahas's favorite color?</p>
@@ -46,16 +108,18 @@
             var answer3 = document.querySelector('input[name="q3"]:checked');
 
             // Check if all questions are answered
-           if (answer1 && answer2 && answer3) {
-            // Check answers
-            if (answer1.value === "purple" && answer2.value === "weeknd" && answer3.value === "zoya") {
-                // Redirect to valentine_message.html if all answers are correct
-                window.location.href = "valentine_message.html";
+            if (answer1 && answer2 && answer3) {
+                // Check answers
+                if (answer1.value === "purple" && answer2.value === "weeknd" && answer3.value === "zoya") {
+                    // Redirect to valentine_message.html if all answers are correct
+                    window.location.href = "valentine_message.html";
+                } else {
+                    alert("Oops! It seems like you need to know Mahas better.");
+                }
             } else {
-                alert("Oops! It seems like you need to know Mahas better.");
+                alert("Please answer all the questions.");
             }
-        } else {
-            alert("Please answer all the questions.");
         }
-    }
-</script>
+    </script>
+</body>
+</html>
