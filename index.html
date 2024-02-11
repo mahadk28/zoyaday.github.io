@@ -73,6 +73,14 @@
             background-color: #d81b60; /* Darker pink on hover */
             transform: scale(1.05);
         }
+
+        #noButton {
+            transition: transform 0.2s ease;
+        }
+
+        #noButton:hover {
+            transform: scale(1.2);
+        }
     </style>
 </head>
 <body>
@@ -86,21 +94,30 @@
         </div>
         <div class="buttons">
             <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+            <button class="btn" id="noButton" onmouseover="enlargeNoButton()" onclick="confirmNo()">No</button>
         </div>
+
+        <script>
+            function nextPage() {
+                window.location.href = "yes.html";
+            }
+
+            function moveButton() {
+                var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
+                var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
+                document.getElementById('noButton').style.left = `${x}px`;
+                document.getElementById('noButton').style.top = `${y}px`;
+            }
+
+            function enlargeNoButton() {
+                document.getElementById('noButton').innerText = "Are you sure?";
+            }
+
+            function confirmNo() {
+                alert("Okay, maybe next time!");
+                // You can add more actions or redirect to another page here
+            }
+        </script>
     </div>
-
-    <script>
-        function nextPage() {
-            window.location.href = "yes.html";
-        }
-
-        function moveButton() {
-            var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
-            var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
-            document.getElementById('noButton').style.left = `${x}px`;
-            document.getElementById('noButton').style.top = `${y}px`;
-        }
-    </script>
 </body>
 </html>
