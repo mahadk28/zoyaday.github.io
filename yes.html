@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./yes_style.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header_text">Hurrayyyy!!</h1>
+        </div>
+        <div class="gif_container">
+            <img src="https://media0.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Cute animated illustration">
+        </div>
+        <div class="quiz">
+            <h2 class="quiz_question">WAIT! Let's make sure you're Valentine material...</h2>
+            <form id="quizForm">
+                <!-- Question 1 -->
+                <p>1. What's Mahas's favorite color?</p>
+                <label><input type="radio" name="q1" value="red"> Red</label>
+                <label><input type="radio" name="q1" value="blue"> Blue</label>
+                <label><input type="radio" name="q1" value="green"> Green</label>
+                <label><input type="radio" name="q1" value="purple"> Purple</label>
+
+                <!-- Question 2 -->
+                <p>2. Who is Mahas's favorite artist?</p>
+                <label><input type="radio" name="q2" value="drake"> Drake</label>
+                <label><input type="radio" name="q2" value="daniel"> Daniel Ceaser</label>
+                <label><input type="radio" name="q2" value="Facking yeat"> yeat</label>
+                <label><input type="radio" name="q2" value="weeknd"> The Weeknd</label>
+
+                <!-- Question 3 -->
+                <p>3. Who does Mahas love the most?</p>
+                <label><input type="radio" name="q3" value="zoya"> Zoya</label>
+                <label><input type="radio" name="q3" value="zoya"> Zoya</label>
+                <label><input type="radio" name="q3" value="zoya"> Zoya</label>
+                <label><input type="radio" name="q3" value="zoya"> Zoya</label>
+
+                <button type="button" onclick="submitQuiz()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            // Collect user's answers
+            var answer1 = document.querySelector('input[name="q1"]:checked');
+            var answer2 = document.querySelector('input[name="q2"]:checked');
+            var answer3 = document.querySelector('input[name="q3"]:checked');
+
+            // Check if all questions are answered
+           if (answer1 && answer2 && answer3) {
+            // Check answers
+            if (answer1.value === "purple" && answer2.value === "weeknd" && answer3.value === "zoya") {
+                // Redirect to valentine_message.html if all answers are correct
+                window.location.href = "valentine_message.html";
+            } else {
+                alert("Oops! It seems like you need to know Mahas better.");
+            }
+        } else {
+            alert("Please answer all the questions.");
+        }
+    }
+</script>
