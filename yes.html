@@ -13,6 +13,10 @@
 
         .container {
             text-align: center;
+            padding: 20px;
+            background-color: #fff; /* White container background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .header_text {
@@ -20,28 +24,23 @@
             font-size: 40px;
             font-weight: bold;
             color: #e91e63; /* Pink text color */
-            text-align: center;
             margin-top: 20px;
             margin-bottom: 0;
         }
 
-        .start-button, .quiz-button {
-            background-color: #e91e63;
-            color: #fff;
-            padding: 15px 32px;
-            text-align: center;
-            display: inline-block;
-            font-size: 16px;
+        .quiz-message {
+            font-size: 18px;
             margin-top: 20px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            color: #555; /* Dark grey text color */
         }
 
-        .start-button:hover, .quiz-button:hover {
-            background-color: #d81b60; /* Darker pink on hover */
-            transform: scale(1.05);
+        .gif_container {
+            margin-top: 20px;
+        }
+
+        .gif_container img {
+            max-width: 100%;
+            border-radius: 10px;
         }
 
         .quiz {
@@ -108,12 +107,15 @@
     <div class="container">
         <div>
             <h1 class="header_text">Hurrayyyy!!</h1>
-            <h2>WAIT! Let's make sure you're Valentine material...</h2>
-            <button class="start-button" onclick="startQuiz()">Start Quiz</button>
+            <div class="quiz-message">
+                <p>Wait! Let's make sure you're Valentine material...</p>
+            </div>
         </div>
-
-        <div class="quiz" id="quizContainer">
+        <div class="gif_container">
+            <img src="https://media0.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Cute animated illustration">
+        </div>
         
+        <div class="quiz" id="quizContainer">
             <div class="progress-bar">
                 <div id="progress" class="progress"></div>
             </div>
@@ -135,7 +137,7 @@
                 <!-- Question 3 -->
                 <p>3. Who does Mahas love the most?</p>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
-                <label><input type="radio" name="q3" value="boya"> Boya</label>
+                <label><input type="radio" name="q3" value="zoya"> Boya</label>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
 
@@ -149,8 +151,6 @@
             document.getElementById('quizContainer').style.display = 'block';
         }
 
- 
-    
         function submitQuiz() {
             // Collect user's answers
             var answer1 = document.querySelector('input[name="q1"]:checked');
@@ -158,16 +158,18 @@
             var answer3 = document.querySelector('input[name="q3"]:checked');
 
             // Check if all questions are answered
-           if (answer1 && answer2 && answer3) {
-            // Check answers
-            if (answer1.value === "purple" && answer2.value === "weeknd" && answer3.value === "zoya") {
-                // Redirect to valentine_message.html if all answers are correct
-                window.location.href = "valentine_message.html";
+            if (answer1 && answer2 && answer3) {
+                // Check answers
+                if (answer1.value === "purple" && answer2.value === "weeknd" && answer3.value === "zoya") {
+                    // Redirect to valentine_message.html if all answers are correct
+                    window.location.href = "valentine_message.html";
+                } else {
+                    alert("Oops! It seems like you need to know Mahas better.");
+                }
             } else {
-                alert("Oops! It seems like you need to know Mahas better.");
+                alert("Please answer all the questions.");
             }
-        } else {
-            alert("Please answer all the questions.");
         }
-    }
-</script>
+    </script>
+</body>
+</html>
