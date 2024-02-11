@@ -74,12 +74,12 @@
             transform: scale(1.05);
         }
 
-        #noButton {
+        #yesButton {
             transition: transform 0.2s ease;
         }
 
-        #noButton:hover {
-            transform: scale(1.2);
+        #noButton {
+            transition: transform 0.2s ease;
         }
     </style>
 </head>
@@ -94,28 +94,32 @@
         </div>
         <div class="buttons">
             <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-            <button class="btn" id="noButton" onmouseover="enlargeNoButton()" onclick="confirmNo()">No</button>
+            <button class="btn" id="noButton" onmouseover="enlargeNoButton()" onclick="displayPrompt()">No</button>
         </div>
 
         <script>
+            var noButtonClicks = 0;
+            var prompts = [
+                "Are you sure?",
+                "Rethink your choice.",
+                "One more chance?",
+                "Still want to say no?",
+                "Think twice.",
+                "Last opportunity."
+            ];
+
             function nextPage() {
                 window.location.href = "yes.html";
             }
 
-            function moveButton() {
-                var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
-                var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
-                document.getElementById('noButton').style.left = `${x}px`;
-                document.getElementById('noButton').style.top = `${y}px`;
-            }
-
             function enlargeNoButton() {
-                document.getElementById('noButton').innerText = "Are you sure?";
+                document.getElementById('noButton').style.transform = 'scale(1)';
             }
 
-            function confirmNo() {
-                alert("Okay, maybe next time!");
-                // You can add more actions or redirect to another page here
+            function displayPrompt() {
+                var promptIndex = noButtonClicks % prompts.length;
+                alert(prompts[promptIndex]);
+                noButtonClicks++;
             }
         </script>
     </div>
