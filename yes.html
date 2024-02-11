@@ -3,18 +3,75 @@
 <head>
     <link rel="stylesheet" href="./yes_style.css">
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background-color: #fce4ec; /* Light pink background */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .header_text {
+            font-family: 'Nunito', sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: #e91e63; /* Pink text color */
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        .start-button {
+            background-color: #e91e63;
+            color: #fff;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .start-button:hover {
+            background-color: #d81b60; /* Darker pink on hover */
+            transform: scale(1.05);
+        }
+
         .quiz {
             background-color: #f8bbd0;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: none;
+            margin-top: 20px;
         }
 
-        .quiz_question {
+        .quiz-question {
             color: #e91e63;
             font-size: 22px;
             margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            background-color: #81c784; /* Light green for progress bar */
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .progress {
+            background-color: #4caf50; /* Dark green for progress */
+            height: 100%;
+            border-radius: 5px;
+            width: 0; /* Initial width is 0 */
+            transition: width 0.5s ease;
         }
 
         .quiz p {
@@ -45,31 +102,17 @@
             color: #fff;
             transform: scale(1.05);
         }
-
-        .progress-bar {
-            background-color: #81c784; /* Light green for progress bar */
-            height: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        .progress {
-            background-color: #4caf50; /* Dark green for progress */
-            height: 100%;
-            border-radius: 5px;
-            width: 0; /* Initial width is 0 */
-            transition: width 0.5s ease;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div>
             <h1 class="header_text">Hurrayyyy!!</h1>
+            <button class="start-button" onclick="startQuiz()">Start Quiz</button>
         </div>
 
         <div class="quiz" id="quizContainer">
-            <h2 class="quiz_question">WAIT! Let's make sure you're Valentine material...</h2>
+            <h2 class="quiz-question">WAIT! Let's make sure you're Valentine material...</h2>
             <div class="progress-bar">
                 <div id="progress" class="progress"></div>
             </div>
@@ -85,14 +128,14 @@
                 <p>2. Who is Mahas's favorite artist?</p>
                 <label><input type="radio" name="q2" value="drake"> Drake</label>
                 <label><input type="radio" name="q2" value="daniel"> Daniel Ceaser</label>
-                <label><input type="radio" name="q2" value="Facking yeat"> facking yeat</label>
+                <label><input type="radio" name="q2" value="Facking yeat"> Facking Yeat</label>
                 <label><input type="radio" name="q2" value="weeknd"> The Weeknd</label>
 
                 <!-- Question 3 -->
                 <p>3. Who does Mahas love the most?</p>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
+                <label><input type="radio" name="q3" value="boya"> Boya</label>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
-                <label><input type="radio" name="q3" value="zoya"> Boya</label>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
 
                 <button type="button" onclick="submitQuiz()">Submit</button>
@@ -101,6 +144,9 @@
     </div>
 
     <script>
+        function startQuiz() {
+            document.getElementById('quizContainer').style.display = 'block';
+        }
         function submitQuiz() {
             // Collect user's answers
             var answer1 = document.querySelector('input[name="q1"]:checked');
