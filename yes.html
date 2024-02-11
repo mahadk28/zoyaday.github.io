@@ -7,8 +7,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 90vh;
+            height: 100vh;
             background-color: #fce4ec; /* Light pink background */
+            margin: 0;
         }
 
         .container {
@@ -21,17 +22,11 @@
 
         .header_text {
             font-family: 'Nunito', sans-serif;
-            font-size: 40px;
+            font-size: 36px;
             font-weight: bold;
             color: #e91e63; /* Pink text color */
             margin-top: 20px;
-            margin-bottom: 0;
-        }
-
-        .quiz-message {
-            font-size: 18px;
-            margin-top: 20px;
-            color: #555; /* Dark grey text color */
+            margin-bottom: 10px;
         }
 
         .quiz {
@@ -65,11 +60,13 @@
 
         .quiz p {
             margin-bottom: 10px;
+            font-size: 16px;
         }
 
         .quiz label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 18px;
         }
 
         .quiz button {
@@ -79,7 +76,7 @@
             text-align: center;
             display: inline-block;
             font-size: 16px;
-            margin-top: 10px;
+            margin-top: 20px;
             border: none;
             border-radius: 12px;
             cursor: pointer;
@@ -95,14 +92,9 @@
 </head>
 <body>
     <div class="container">
-        <div>
-            <h1 class="header_text">Hurrayyyy!!</h1>
-            <div class="quiz-message">
-                <p>Wait! Let's make sure you're Valentine material...</p>
-            </div>
-        </div>
-        
+        <h1 class="header_text">Hurrayyyy!!</h1>
         <div class="quiz" id="quizContainer">
+            <h2 class="quiz-question">WAIT! Let's make sure you're Valentine material...</h2>
             <div class="progress-bar">
                 <div id="progress" class="progress"></div>
             </div>
@@ -124,7 +116,7 @@
                 <!-- Question 3 -->
                 <p>3. Who does Mahas love the most?</p>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
-                <label><input type="radio" name="q3" value="boya"> Zoya</label>
+                <label><input type="radio" name="q3" value="boya"> Boya</label>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
 
