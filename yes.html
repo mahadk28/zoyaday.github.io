@@ -44,7 +44,6 @@
         }
 
         .quiz {
-            display: none;
             background-color: #f8bbd0;
             padding: 20px;
             border-radius: 10px;
@@ -137,7 +136,7 @@
                 <!-- Question 3 -->
                 <p>3. Who does Mahas love the most?</p>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
-                <label><input type="radio" name="q3" value="zoya"> Boya</label>
+                <label><input type="radio" name="q3" value="boya"> Boya</label>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
                 <label><input type="radio" name="q3" value="zoya"> Zoya</label>
 
@@ -147,10 +146,6 @@
     </div>
 
     <script>
-        function startQuiz() {
-            document.getElementById('quizContainer').style.display = 'block';
-        }
-
         function submitQuiz() {
             // Collect user's answers
             var answer1 = document.querySelector('input[name="q1"]:checked');
